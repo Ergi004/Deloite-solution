@@ -1,0 +1,289 @@
+@import "tailwindcss";
+@import "../../node_modules/tw-animate-css/dist/tw-animate.css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+  Deloitte Elevate palette: a single green accent (brand green ~#86BC25, converted to
+  OKLCH) over a consistent cool-neutral gray family. One accent, one gray hue, tinted
+  shadows and borders instead of pure black/white — see docs/DECISIONS.md.
+*/
+:root {
+  --background: oklch(0.985 0.003 142);
+  --foreground: oklch(0.17 0.006 142);
+  --card: oklch(0.995 0.002 142);
+  --card-foreground: oklch(0.17 0.006 142);
+  --popover: oklch(0.995 0.002 142);
+  --popover-foreground: oklch(0.17 0.006 142);
+  --primary: oklch(0.645 0.17 130);
+  --primary-foreground: oklch(0.145 0.012 142);
+  --secondary: oklch(0.95 0.01 142);
+  --secondary-foreground: oklch(0.25 0.01 142);
+  --muted: oklch(0.955 0.007 142);
+  --muted-foreground: oklch(0.47 0.012 142);
+  --accent: oklch(0.925 0.045 130);
+  --accent-foreground: oklch(0.26 0.07 130);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.008 142);
+  --input: oklch(0.9 0.008 142);
+  --ring: oklch(0.645 0.17 130);
+  --chart-1: oklch(0.85 0.13 128);
+  --chart-2: oklch(0.645 0.17 130);
+  --chart-3: oklch(0.52 0.15 136);
+  --chart-4: oklch(0.4 0.12 142);
+  --chart-5: oklch(0.28 0.08 148);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.97 0.004 142);
+  --sidebar-foreground: oklch(0.17 0.006 142);
+  --sidebar-primary: oklch(0.645 0.17 130);
+  --sidebar-primary-foreground: oklch(0.145 0.012 142);
+  --sidebar-accent: oklch(0.925 0.045 130);
+  --sidebar-accent-foreground: oklch(0.26 0.07 130);
+  --sidebar-border: oklch(0.9 0.008 142);
+  --sidebar-ring: oklch(0.645 0.17 130);
+  --shadow-tint: 142 0.01;
+}
+
+.dark {
+  --background: oklch(0.175 0.008 142);
+  --foreground: oklch(0.97 0.004 142);
+  --card: oklch(0.225 0.009 142);
+  --card-foreground: oklch(0.97 0.004 142);
+  --popover: oklch(0.225 0.009 142);
+  --popover-foreground: oklch(0.97 0.004 142);
+  --primary: oklch(0.74 0.17 128);
+  --primary-foreground: oklch(0.145 0.012 142);
+  --secondary: oklch(0.29 0.01 142);
+  --secondary-foreground: oklch(0.95 0.004 142);
+  --muted: oklch(0.26 0.01 142);
+  --muted-foreground: oklch(0.69 0.012 142);
+  --accent: oklch(0.32 0.055 130);
+  --accent-foreground: oklch(0.92 0.06 128);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.74 0.17 128);
+  --chart-1: oklch(0.85 0.13 128);
+  --chart-2: oklch(0.74 0.17 128);
+  --chart-3: oklch(0.6 0.16 134);
+  --chart-4: oklch(0.47 0.13 140);
+  --chart-5: oklch(0.34 0.09 146);
+  --sidebar: oklch(0.2 0.008 142);
+  --sidebar-foreground: oklch(0.97 0.004 142);
+  --sidebar-primary: oklch(0.74 0.17 128);
+  --sidebar-primary-foreground: oklch(0.145 0.012 142);
+  --sidebar-accent: oklch(0.32 0.055 130);
+  --sidebar-accent-foreground: oklch(0.92 0.06 128);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.74 0.17 128);
+  --shadow-tint: 142 0.01;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+/* Tinted, directional shadows instead of generic flat-black box-shadow. */
+@layer utilities {
+  .shadow-tint-sm {
+    box-shadow: 0 1px 2px -1px oklch(0.2 0.02 142 / 0.08), 0 1px 1px oklch(0.2 0.02 142 / 0.04);
+  }
+  .shadow-tint-md {
+    box-shadow:
+      0 8px 24px -8px oklch(0.2 0.02 142 / 0.14),
+      0 2px 6px -2px oklch(0.2 0.02 142 / 0.08);
+  }
+  .shadow-tint-glow {
+    box-shadow:
+      0 0 0 1px oklch(0.645 0.17 130 / 0.3),
+      0 12px 32px -12px oklch(0.645 0.17 130 / 0.35);
+  }
+  .dark .shadow-tint-glow {
+    box-shadow:
+      0 0 0 1px oklch(0.74 0.17 128 / 0.35),
+      0 12px 32px -12px oklch(0.74 0.17 128 / 0.4);
+  }
+
+  .bg-grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .bg-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .bg-ambient-glow {
+    background-image:
+      radial-gradient(60% 50% at 15% 0%, oklch(0.645 0.17 130 / 0.14), transparent 60%),
+      radial-gradient(40% 35% at 100% 100%, oklch(0.645 0.17 130 / 0.1), transparent 60%);
+  }
+  .dark .bg-ambient-glow {
+    background-image:
+      radial-gradient(60% 50% at 15% 0%, oklch(0.74 0.17 128 / 0.16), transparent 60%),
+      radial-gradient(40% 35% at 100% 100%, oklch(0.74 0.17 128 / 0.1), transparent 60%);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Entrance + stagger animations. Transform/opacity only — GPU friendly. */
+@layer utilities {
+  @keyframes elevate-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes elevate-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes elevate-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes elevate-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  .animate-fade-up {
+    animation: elevate-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+  .animate-fade-in {
+    animation: elevate-fade-in 0.4s ease-out backwards;
+  }
+  .animate-scale-in {
+    animation: elevate-scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .stagger-1 {
+    animation-delay: 40ms;
+  }
+  .stagger-2 {
+    animation-delay: 80ms;
+  }
+  .stagger-3 {
+    animation-delay: 120ms;
+  }
+  .stagger-4 {
+    animation-delay: 160ms;
+  }
+  .stagger-5 {
+    animation-delay: 200ms;
+  }
+  .stagger-6 {
+    animation-delay: 240ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-scale-in {
+      animation: none;
+    }
+  }
+}
+
+@media print {
+  header {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+}
